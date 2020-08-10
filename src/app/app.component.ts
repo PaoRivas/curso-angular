@@ -11,11 +11,10 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
 
-    const array = from([1,2,3,4,5,6]);
-    array.subscribe(s => console.log('item:', s));
 
-    const aux = fromEvent(document, 'mousemove');
-    aux.subscribe((s:any) => console.log('event: ', s.clientX + ', ' + s.clientY));
+  }
 
+  onClickSaveChild(event){
+    console.log("Event child: ", event);
   }
 }
