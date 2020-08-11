@@ -13,6 +13,8 @@ export class AppComponent implements OnInit{
 
   persons = [1,2,3,4,5]
 
+  aux = 3;
+
   ngOnInit(){
 
 
