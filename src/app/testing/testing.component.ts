@@ -2,8 +2,13 @@ import { Component, OnInit, Input, OnChanges, DoCheck,AfterContentInit,AfterCont
 
 @Component({
   selector: 'app-testing',
-  templateUrl: './testing.component.html',
-  styleUrls: ['./testing.component.css']
+  template: `<div>
+<p>testing works!</p>
+
+<input type="text">
+
+<p>Valor name: {{name}}</p>
+</div>` 
 })
 export class TestingComponent implements OnInit, OnChanges, DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked,OnDestroy {
 
