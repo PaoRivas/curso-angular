@@ -17,6 +17,8 @@ export class AppComponent implements OnInit{
 
   auxColor = 'red';
 
+  auxClass = true;
+
   ngOnInit(){
 
 
