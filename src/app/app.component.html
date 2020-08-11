@@ -1,3 +1,5 @@
 <p>Paola</p>
 
-<app-testing name="Paola" age="22" desc="Estudiante" (clickAge)="onClickSaveChild($event)"></app-testing>
+<app-testing *ngIf="sw" name="Paola"></app-testing>
+
+<button (click)="sw = false;">Change SW</button>

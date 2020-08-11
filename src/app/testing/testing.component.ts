@@ -1,29 +1,45 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked,OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-testing',
   templateUrl: './testing.component.html',
   styleUrls: ['./testing.component.css']
 })
-export class TestingComponent implements OnInit {
+export class TestingComponent implements OnInit, OnChanges, DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked,OnDestroy {
 
-  @Input() name:string;
-  @Input() age:number;
-  @Input() desc:string;
-
-  @Output() clickAge = new EventEmitter();
+  @Input() name: string;
 
   constructor() { }
 
   ngOnInit() {
+    console.log('OnInit');
   }
 
-  onClickSave(){
-    this.clickAge.emit({
-      name: this.name,
-      age: this.age,
-      description: this.desc
-      });
+  ngOnChanges(){
+    console.log("OnChanges");
   }
 
+  ngDoCheck(){
+    console.log("DoCheck");
+  }
+
+  ngAfterContentInit(){
+    console.log("AfterContentInit");
+  }
+
+  ngAfterContentChecked(){
+    console.log("AfterContentChecked");
+  }
+
+  ngAfterViewInit(){
+    console.log("AfterViewInit");
+  }
+
+  ngAfterViewChecked(){
+    console.log("AfterViewChecked");
+  }
+
+  ngOnDestroy(){
+    console.log("OnDestroy");
+  }
 }
