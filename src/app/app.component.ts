@@ -11,13 +11,34 @@ export class AppComponent implements OnInit{
 
   sw = true;
 
-  persons = [1,2,3,4,5]
+  persons = [
+    {
+      name: 'paola',
+      lastName: 'rivas',
+      age: 22,
+      enable: true
+    },
+    {
+      name: 'paola',
+      lastName: 'rivas',
+      age: 22,
+      enable: true
+    },
+    {
+      name: 'paola',
+      lastName: 'rivas',
+      age: 22,
+      enable: false
+    },
+    {
+      name: 'paola',
+      lastName: 'rivas',
+      age: 22,
+      enable: false
+    }
+  ]
 
-  aux = 3;
 
-  auxColor = 'red';
-
-  auxClass = true;
 
   ngOnInit(){
 
