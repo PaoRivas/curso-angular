@@ -11,6 +11,8 @@ export class AppComponent implements OnInit{
 
   sw = true;
 
+  persons = [1,2,3,4,5]
+
   ngOnInit(){
 
 
