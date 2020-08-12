@@ -4,17 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { TestingComponent } from './testing/testing.component';
 import { FormsModule } from '@angular/forms';
-import { PersonaComponent } from './persona/persona.component';
+import { PersonaModule } from './componentes/persona.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestingComponent,
-    PersonaComponent
+    TestingComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    PersonaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
