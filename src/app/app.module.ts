@@ -8,11 +8,14 @@ import { PersonaModule } from './personamodule/persona.module';
 import { ProductoModule } from './productomodule/producto.module';
 import { AdminModule } from './adminmodule/admin.module';
 import { UserModule } from './usermodule/user.module';
+import { TestPipe } from './pipes/test.pipe';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TestingComponent,
+    TestPipe
   ],
   imports: [
     BrowserModule,
