@@ -10,6 +10,8 @@ import { AdminModule } from './adminmodule/admin.module';
 import { UserModule } from './usermodule/user.module';
 import { TestPipe } from './pipes/test.pipe';
 import { ExpoPipe } from './pipes/expo.pipe';
+import { PurePipe } from './pipes/pure.pipe';
+import { ImpurePipe } from './pipes/impure.pipe';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ExpoPipe } from './pipes/expo.pipe';
     AppComponent,
     TestingComponent,
     TestPipe,
-    ExpoPipe
+    ExpoPipe,
+    PurePipe,
+    ImpurePipe
   ],
   imports: [
     BrowserModule,
