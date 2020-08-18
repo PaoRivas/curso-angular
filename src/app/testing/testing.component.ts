@@ -8,11 +8,22 @@ import { Component, OnInit, Input, OnChanges, DoCheck,AfterContentInit,AfterCont
 <input type="text">
 
 <p>Valor name: {{name}}</p>
+<p>Valor last name: {{lastname}}</p>
 </div>` 
 })
 export class TestingComponent implements OnInit, OnChanges, DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked,OnDestroy {
 
-  @Input() name: string;
+ intermediaria:string;
+
+  @Input()
+    get name(){
+      return this.intermediaria
+    }
+    set name(name:string){
+      this.intermediaria = 'aa' + name;
+    }
+
+  @Input() lastname:string;
 
   constructor() { }
 
@@ -20,8 +31,12 @@ export class TestingComponent implements OnInit, OnChanges, DoCheck,AfterContent
     console.log('OnInit');
   }
 
-  ngOnChanges(){
-    console.log("OnChanges");
+  ngOnChanges(changes: SimpleChange){
+    if (changes && changes.lastname && changes.lastname.currentValue){
+    console.log("OnChanges", changes.lastname.currentValue);
+    const aux = 'AAAA' + changes.lastname.currentValue;
+    this.lastname = aux;
+    }
   }
 
   ngDoCheck(){

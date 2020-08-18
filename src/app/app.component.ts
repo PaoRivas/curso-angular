@@ -9,6 +9,7 @@ import { from, fromEvent} from 'rxjs';
 export class AppComponent implements OnInit{
   title = 'curso-angular';
   name = 'Paola';
+  lastName = 'Rivas';
   sw = true;
 
   numbers = [1,2,3,4,5,6,7,8,9,10];
