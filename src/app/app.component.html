@@ -21,3 +21,6 @@ EXPONENT:<input type="text" [(ngModel)]="auxExponent">
 <button (click) = "name = 'maria'; lastName = 'gutierrez'">change</button>
 
 <app-testing [name]="name" [lastname]="lastName"></app-testing>
+
+<div style="border: 1px solid green;"
+(appNgFocus)="name='Rivas'" >{{name}}</div>
