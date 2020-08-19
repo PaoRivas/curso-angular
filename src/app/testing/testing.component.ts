@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked,OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, DoCheck,AfterContentInit,AfterContentChecked,AfterViewInit,AfterViewChecked,OnDestroy, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-testing',
