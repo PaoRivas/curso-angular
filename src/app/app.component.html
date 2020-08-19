@@ -1,4 +1,6 @@
-<div>Total Inscritos: </div>
+<div>Total Inscritos: {{total}}</div>
+<br>
+<div *ngIf="total === 5">TODOS ESTÁN INSCRITOS</div>
 <br>
 <div>
 <div>Primaria</div>
@@ -7,10 +9,11 @@
 <div *ngFor="let student of students">
   <div *ngIf="student.grado === 'P'">
     <br>
-    <div [ngStyle]="{'background': student.edad < 18 ? 'yellow' : 'red'}">
+    <div [ngStyle]="{'background': student.edad > 18 ? 'red' : 'yellow'}">
     <app-student [name]="student.nombre | uppercase"
                  [age]="student.edad"
-                 [grade]="'Primaria'">
+                 [grade]="'Primaria'"
+                 (clickInscribir)="onClickSaveChild($event)">
     </app-student>
 
     </div>
@@ -26,8 +29,9 @@
     <br>
     <div [ngStyle]="{'background': student.edad < 18 ? 'yellow' : 'red'}">
     <app-student [name]="student.nombre | uppercase"
-                 [age]="'Secundaria'"
-                 [grade]="student.grado">
+                 [age]="student.edad"
+                 [grade]="'Secundaria'"
+                 (clickInscribir)="onClickSaveChild($event)">
     </app-student>
 
     </div>

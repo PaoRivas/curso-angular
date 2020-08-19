@@ -7,5 +7,6 @@
 
 </div> 
 <br>
-<button>Inscribir</button>
+<button *ngIf="age <= 18" (click)="onClickSave()">Inscribir</button>
+<button disabled *ngIf="age > 18" (click)="onClickSave()">Inscribir</button>
 </div> 

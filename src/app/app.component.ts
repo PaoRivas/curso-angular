@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LowerCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'curso-angular';
+  total:number = 0;
 
   students = [
 {nombre: "juan", edad: 13, grado: "P"},
@@ -23,6 +25,16 @@ export class AppComponent {
 
 auxP = this.students.filter(s => s.grado === "P").length;
 auxS = this.students.filter(s => s.grado === "S").length;
-  //  console.log('pares: ')
+
+
+onClickSaveChild(event){
+    this.total = this.total + 1;
+    console.log(event);
+    var index = this.students.findIndex(s => s.nombre === event.toLocaleLowerCase());
+    console.log(index)
+    this.students.splice(index, 1);
+  }	 
 }
+
+
 
