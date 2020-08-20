@@ -1,26 +1,6 @@
-<p>PIPES</p>
+<p>ROUTING</p>
 
-<p>PIPES JSON: {{persons | json}}</p>
-<p>PIPES UPPERCASE: {{name | uppercase}}</p>
-<p>PIPES LOWERCASE: {{name | lowercase}}</p>
-<p>PIPES DATE: {{'08/08/2020' | date:"MM/dd/yy"}}</p>
-
-<p>VAR NAME: {{name | test}}</p>
-
-VALUE:<input type="text" [(ngModel)]="auxNumber">
-EXPONENT:<input type="text" [(ngModel)]="auxExponent">
-<p>{{ auxNumber | expo:auxExponent }}</p>
-
-<p>PURA: {{numbers | pure}}</p>
-<p>PURA: {{numbers | impure}}</p>
-
-<button (click)='numbers.push(4)'>ADD</button>
-
-<div [appNgColor]="'green'" [secondColor]="'red'"> Paola </div>
-
-<button (click) = "name = 'maria'; lastName = 'gutierrez'">change</button>
-
-<app-testing [name]="name" [lastname]="lastName"></app-testing>
-
-<div style="border: 1px solid green;"
-(appNgFocus)="name='Rivas'" >{{name}}</div>
+<div style = "border: 1px solid red;">
+  <router-outlet>
+  </router-outlet>
+</div>
