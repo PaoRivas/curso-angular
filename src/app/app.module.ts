@@ -20,6 +20,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Home1Component } from './home1/home1.component';
 import { Home2Component } from './home2/home2.component';
+import { UserModule2 } from './user/user.module';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { Home2Component } from './home2/home2.component';
     ProductoModule,
     AdminModule,
     UserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UserModule2
   ],
   providers: [],
   bootstrap: [AppComponent]
