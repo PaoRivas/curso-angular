@@ -7,6 +7,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  products = [
+    {
+      description: 'Muy ricas',
+      imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+      ownerId: 1,
+      price: 10,
+      title: 'Salteñas'
+    },
+    {
+      description: 'Muy ricas',
+      imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+      ownerId: 1,
+      price: 10,
+      title: 'Salteñas'
+    },
+    {
+      description: 'Muy ricas',
+      imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+      ownerId: 1,
+      price: 10,
+      title: 'Salteñas'
+    },
+    {
+      description: 'Muy ricas',
+      imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
+      ownerId: 1,
+      price: 10,
+      title: 'Salteñas'
+    }
+  ];
+
   constructor() { }
 
   ngOnInit() {
