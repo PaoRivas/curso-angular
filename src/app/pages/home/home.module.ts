@@ -5,13 +5,14 @@ import { HomeComponent } from './home/home.component';
 import { MatCardModule } from '@angular/material/card';
 import { ProductService } from '../../services/product.service';
 import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     HomeRoutingModule,
     MatCardModule,
-    MatIconModule
+    HttpClientModule
   ],
   declarations: [
     HomeComponent
