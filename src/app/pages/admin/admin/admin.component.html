@@ -1,3 +1,12 @@
 <p>
 admin works!
 </p>
+
+<form [formGroup]="productForm" style="display: flex; flex-direction: column;">
+  <input formControlName="description" type:"text">
+  <input formControlName="imageUrl" type:"text">
+  <input formControlName="ownerId" type:"text">
+  <input formControlName="price" type:"text">
+  <input formControlName="title" type:"text">
+</form>
+<button (click)="onEnviar2()">ENVIAR</button>
