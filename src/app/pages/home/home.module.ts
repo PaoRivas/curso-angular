@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ProductService } from '../../services/product.service';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
