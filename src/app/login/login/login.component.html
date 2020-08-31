@@ -2,6 +2,14 @@
 login works!
 </p>
 
+<div style="display: flex; flex-direction: column;">
+  <form (ngSubmit)="onLogin2(form)" #form="ngForm">
+    <input type="text" name="username" ngModel>
+    <input type="password" name="password" ngModel>
+    <button type="submit">ENVIAR</button>
+  </form>
+</div>
+
 <button routerLink="/pages">LOGIN</button>
 
 <button (click)= "sw = !sw">SW</button>
