@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-admin',
@@ -8,6 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AdminComponent implements OnInit {
 
+  productService: ProductService;
   productForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
@@ -23,7 +25,16 @@ export class AdminComponent implements OnInit {
   }
 
   onEnviar2(){
-    console.log('FORM GROUP: ', this.productForm.value)
+    console.log('FORM GROUP: ', this.productForm.value);
+
+    this.productService.addProduct(this.productForm.value).subscribe(
+      res => {
+        console.log('RESP: ', res);
+      },
+      err => {
+        console.log('ERROR DE SERVIDOR');
+      }
+    )
   }
 
 }
