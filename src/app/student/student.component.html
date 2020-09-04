@@ -1,0 +1,58 @@
+<p>Hola</p>
+
+<div [style.background]="edad > 18 ? 'red' : 'orange'"
+       style="float: left; margin: 10px; padding: 10px;">
+	  <p>Nombre: {{nombre | uppercase}}</p>
+	  <p>Edad: {{edad}}</p>
+	  <p>Grado: {{grado === 'P' ? 'primaria' : 'secundaria'}}</p>
+	  <button (click)="onInscribir()" [disabled]="edad > 18">
+      Inscribir
+    </button>
+  </div>
+
+<!--<form [formGroup]="studentsForm" style="display: flex; flex-direction: column; padding: 20px;">
+
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="age" type="text">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Image Url</mat-label>
+        <input matInput formControlName="grade" type="text">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Owner Id</mat-label>
+        <input matInput formControlName="name" type="text">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput formControlName="urlImage" type="text">
+      </mat-form-field>
+
+</form>
+
+<div class="row">
+
+    <div *ngFor="let student of students"
+         class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
+         style="padding: 50px; display: flex; justify-content: center;">
+
+    <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{student.age}}</mat-card-title>
+          <mat-card-subtitle>{{student.grade}} Bs.</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="student.urlImage" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            {{student.name}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="onEdit(product); drawer.toggle()">Edit</button>
+          <button mat-button (click)="onDelete(product.id)">Delete</button>
+        </mat-card-actions>
+      </mat-card> 
+
+    </div>
+  </div>-->
