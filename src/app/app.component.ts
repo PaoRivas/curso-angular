@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+
   students = [];
   idEdit: any;
 
@@ -22,6 +23,8 @@ export class AppComponent implements OnInit{
   constructor(private formBuilder: FormBuilder, private studentService: StudentService) {}
 
   ngOnInit() {
+
+    this.onGetStudents();
 
     this.studentsForm = this.formBuilder.group({
       age: '',
@@ -50,9 +53,9 @@ export class AppComponent implements OnInit{
     );
   }
 
-  onEdit(product): void {
-    this.idEdit = product.id;
-    this.studentsForm.patchValue(product);
+  onEdit(student): void {
+    this.idEdit = student.id;
+    this.studentsForm.patchValue(student);
   }
 
   onUpdateProduct(): void {

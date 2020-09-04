@@ -1,31 +1,42 @@
-<mat-drawer-container autosize style="width: 100%; height: 600px;">
+<mat-drawer-container autosize style="width: 100%; height: 600px">
 
-  <mat-drawer #drawer style="width: 300px; height: 100%;" mode="side" [position]="'end'">
 
-    <form [formGroup]="studentsForm" style="display: flex; flex-direction: column; padding: 20px;">
+<div class="row">
 
-      <mat-form-field>
+    <div *ngFor="let student of students"
+         class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
+         style="padding: 50px; display: flex; justify-content: center;">
+
+      <mat-card class="example-card">
+        <img mat-card-image [src]="student.urlImage">
+        <mat-card-content>
+          <p>
+            {{student.age}}
+          </p>
+          <p>
+            {{student.grade}}
+          </p>
+          <p>
+            {{student.name}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="onEdit(student)">Editar</button>
+          <button mat-button (click)="onDelete(student.id)">Borrar</button>
+        </mat-card-actions>
+      </mat-card>
+
+    </div>
+  </div>
+
+  </mat-drawer-container>
+
+<!--<mat-drawer-container autosize style="width: 100%; height: 600px;">
+
+  <mat-form-field>
         <mat-label>Edad</mat-label>
         <input matInput formControlName="age" type="text">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Grado</mat-label>
-        <input matInput formControlName="grade" type="text">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Nombre</mat-label>
-        <input matInput formControlName="name" type="text">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Imagen</mat-label>
-        <input matInput formControlName="urlImage" type="text">
-      </mat-form-field>
-
-    </form>
-    <button (click)="onEnviar2()">Create</button>
-    <button (click)="onUpdateProduct()">Update</button>
-
-  </mat-drawer>
+  </mat-form-field>
 
   <div class="example-sidenav-content">
     <button type="button" mat-button (click)="drawer.toggle()">
@@ -63,5 +74,30 @@
 
 
 
+<!--<mat-drawer #drawer style="width: 300px; height: 100%;" mode="side" [position]="'end'">
 
+    <form [formGroup]="studentsForm" style="display: flex; flex-direction: column; padding: 20px;">
+
+      <mat-form-field>
+        <mat-label>Edad</mat-label>
+        <input matInput formControlName="age" type="text">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Grado</mat-label>
+        <input matInput formControlName="grade" type="text">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name" type="text">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Imagen</mat-label>
+        <input matInput formControlName="urlImage" type="text">
+      </mat-form-field>
+
+    </form>
+    <button (click)="onEnviar2()">Create</button>
+    <button (click)="onUpdateProduct()">Update</button>
+
+  </mat-drawer>-->
 
