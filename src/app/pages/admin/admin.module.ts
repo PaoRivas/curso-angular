@@ -8,6 +8,8 @@ import { ProductService } from '../../services/product.service';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -17,7 +19,9 @@ import { MatCardModule } from '@angular/material/card';
     HttpClientModule,
     MatSidenavModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   declarations: [
     AdminComponent

@@ -17,4 +17,12 @@ export class ProductService {
     return this.http.post('https://angular-project-65078.firebaseio.com/products.json', product);
   }
 
+  public deleteProduct(id: any): Observable<any> {
+    return this.http.delete(`https://angular-course-bcdc9.firebaseio.com/products/${id}.json`);
+  }
+
+  public updateProduct(id: any, product: any): Observable<any> {
+    return this.http.put(`https://angular-course-bcdc9.firebaseio.com/products/${id}.json`, product);
+  }
+
 }
