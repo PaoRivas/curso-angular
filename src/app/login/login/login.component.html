@@ -2,6 +2,13 @@
 login works!
 </p>
 
+<button (click)="sw = !sw;">SW</button>
+<div *ngIf="sw else esFalso">es verdad</div>
+
+<ng-template #esFalso>
+  <p>Es falso</p>
+</ng-template>
+
 <!--<div style="display: flex; flex-direction: column;">
   <form (ngSubmit)="onLogin2(form)" #form="ngForm">
     <input type="text" name="username" ngModel>
