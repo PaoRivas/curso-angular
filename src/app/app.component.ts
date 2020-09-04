@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StudentService } from './services/student.service';
 import { Subscription } from 'rxjs';
 
@@ -28,8 +28,8 @@ export class AppComponent implements OnInit{
 
     this.studentsForm = this.formBuilder.group({
       age: '',
-      grade: '',
-      name: '',
+      grade: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(3)]],
       urlImage: ''
     })
   }
@@ -58,7 +58,7 @@ export class AppComponent implements OnInit{
     this.studentsForm.patchValue(student);
   }
 
-  onUpdateProduct(): void {
+  onUpdateStudent(): void {
     this.studentUpdateSubs = this.studentService.updateStudent(this.idEdit, this.studentsForm.value).subscribe(
       res => {
         console.log('RESP UPDATE: ', res);
