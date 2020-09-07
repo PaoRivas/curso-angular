@@ -76,6 +76,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.productSubs = this.productService.addProduct(this.productForm.value).subscribe(
       res => {
         console.log('RESP: ', res);
+        this.loadProduct();
       },
       err => {
         console.log('ERROR DE SERVIDOR');
