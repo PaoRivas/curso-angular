@@ -3,13 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
+  {path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)},
   {path: 'pages', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)}
 ];
 
