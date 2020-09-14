@@ -3,7 +3,6 @@ import { ProductService } from '../../../services/product.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
