@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home.component';
 import { MatCardModule } from '@angular/material/card';
-import { ProductService } from '../../services/product.service';
+import { ProductService } from '../../shared/services/product.service';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
