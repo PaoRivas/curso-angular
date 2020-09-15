@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {environment} from '../../../environments/environment';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -10,7 +11,7 @@ export class AuthService {
   url = environment.auth.apiBaseUrl;
   key = environment.auth.key;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router:Router) { }
 
   public login(body: any): Observable<any> {
     return this.http.post(`${this.url}/v1/accounts:signInWithPassword?key=${this.key}`, body).pipe(map((res:any) => {this.authSuccess(res.idToken, res.localId); return res}));
@@ -32,5 +33,11 @@ export class AuthService {
   public verifyLogged(): boolean {
     const token = localStorage.getItem('token');
     return !!token;
+  }
+
+  public logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    this.router.navigate(['login']);
   }
 }
