@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProductService } from '../../shared/services/product.service';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   templateUrl: './admin.component.html',
@@ -18,7 +19,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   productUpdateSubs: Subscription;
   idEdit: any;
 
-  constructor(private formBuilder: FormBuilder, private productService: ProductService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService,private productService: ProductService) {
 }
 
   ngOnInit(): void {
@@ -35,7 +36,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   loadProduct(): void {
     this.products = [];
-    const userId = localStorage.getItem('userId');
+    const userId = this.authService.getUserId();
     this.productGetSubs = this.productService.getProductsById(userId).subscribe(res => {
       Object.entries(res).map((p: any) => this.products.push({id: p[0], ...p[1]}));
     });
@@ -60,7 +61,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   onUpdateProduct(): void {
     this.productUpdateSubs = this.productService.updateProduct(this.idEdit, {...this.productForm.value,
-    ownerId: localStorage.getItem('userId')}).subscribe(
+    ownerId: this.authService.getUserId()}).subscribe(
       res => {
         console.log('RESP UPDATE: ', res);
         this.loadProduct();
@@ -75,7 +76,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     console.log('FORM GROUP: ', this.productForm.value);
 
     this.productSubs = this.productService.addProduct({...this.productForm.value,
-    ownerId: localStorage.getItem('userId')}).subscribe(
+    ownerId: this.authService.getUserId()}).subscribe(
       res => {
         console.log('RESP: ', res);
         this.loadProduct();

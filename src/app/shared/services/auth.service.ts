@@ -20,4 +20,17 @@ export class AuthService {
     localStorage.setItem('auth', token);
     localStorage.setItem('userId', userId);
   }
+
+  public getToken(): string {
+    return localStorage.getItem('token');
+  }
+
+  public getUserId(): string {
+    return localStorage.getItem('userId');
+  }
+
+  public verifyLogged(): boolean {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
 }
