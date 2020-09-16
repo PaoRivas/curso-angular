@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   private authSuccess(token: string, userId: string): void{
-    localStorage.setItem('auth', token);
+    localStorage.setItem('token', token);
     localStorage.setItem('userId', userId);
   }
 

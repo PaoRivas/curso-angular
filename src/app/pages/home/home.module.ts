@@ -4,14 +4,14 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { MatCardModule } from '@angular/material/card';
 import { ProductService } from '../../shared/services/product.service';
-import { MatIconModule } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   declarations: [
     HomeComponent

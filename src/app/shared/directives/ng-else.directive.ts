@@ -1,9 +1,9 @@
-import { Directive, TemplateRef, ViewContainerRef, Input } from '@angular/core';
+import { Directive, TemplateRef, ViewContainerRef, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[ngElse]'
 })
-export class NgElseDirective {
+export class NgElseDirective implements OnInit{
 
   @Input() 
   set ngElse(condition: boolean){

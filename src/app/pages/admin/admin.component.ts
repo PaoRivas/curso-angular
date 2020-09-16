@@ -72,7 +72,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     );
   }
 
-  onEnviar2(){
+  onEnviar2(): void {
     console.log('FORM GROUP: ', this.productForm.value);
 
     this.productSubs = this.productService.addProduct({...this.productForm.value,
@@ -87,7 +87,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy(){
+  ngOnDestroy(): void {
     this.productSubs ? this.productSubs.unsubscribe() : '';
     this.productGetSubs ? this.productGetSubs.unsubscribe() : '';
     this.productDeleteSubs ? this.productDeleteSubs.unsubscribe() : '';
