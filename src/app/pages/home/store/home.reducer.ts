@@ -1,4 +1,5 @@
-import { createReducer, Action } from "@ngrx/store"
+import { createReducer, Action, on} from "@ngrx/store";
+import { AddProduct } from './home.actions';
 
 export interface HomeState {
   items: any,
@@ -11,7 +12,8 @@ export const initialState: HomeState = {
 }
 
 const featureReducer = createReducer(
-  initialState
+  initialState,
+  on(AddProduct, (state, {product}) => ({...state, items: state.items.concat(product)}))
 )
 
 export function reducer(state: HomeState, action: Action): any {
