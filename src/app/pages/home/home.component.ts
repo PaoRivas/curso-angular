@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.homeSubs = this.store.select(s => s.home).subscribe(res => {
       console.log('AAAAAAAAAAAAA', res);
-      this.cart = Object.assign([], res);
+      this.cart = Object.assign([], res.items);
     });
 
     this.productSubs = this.productService.getProducts().subscribe(res => {
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   onComprar(product): void{
-    this.store.dispatch(AddProduct({product: product}));
+    this.store.dispatch(AddProduct({product: Object.assign({}, product)}));
   }
 
 }

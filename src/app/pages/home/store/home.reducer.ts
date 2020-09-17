@@ -17,5 +17,5 @@ const featureReducer = createReducer(
 );
 
 export function reducer(state: HomeState, action: Action): any {
-  return featureReducer(state, action)
+  return featureReducer(state, action);
 }
