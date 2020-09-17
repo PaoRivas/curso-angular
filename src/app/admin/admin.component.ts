@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { AuthService } from '../services/auth.service';
 import { PersonService } from '../services/person.service';
 
 @Component({
@@ -26,6 +25,13 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this.onGetPersons();
+
+    this.personForm = this.formBuilder.group({
+      age: '',
+      enable: ['', [Validators.required, Validators.minLength(3)]],
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      urlImage: ''
+    })
   }
 
   onGetPersons(): void {
@@ -68,6 +74,7 @@ export class AdminComponent implements OnInit {
     this.personSubs = this.personService.addPersons(this.personForm.value).subscribe(
       res => {
         console.log('RESP: ', res);
+        this.onGetPersons();
       },
       err => {
         console.log('ERROR DE SERVIDOR');

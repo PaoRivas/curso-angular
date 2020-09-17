@@ -1,32 +1,7 @@
 <app-nav></app-nav>
+<app-drawer></app-drawer>
 
-<div class="row">
-
-    <div *ngFor="let person of persons"
-         class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
-         style="padding: 50px; display: flex; justify-content: center;">
-
-      <mat-card class="example-card">
-        <mat-card-header>
-          <mat-card-title>{{person.name}}</mat-card-title>
-          <mat-card-subtitle>{{person.age}}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image [src]="person.imageUrl" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-          <p>
-            {{person.enable}}
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-button>Comprar</button>
-        </mat-card-actions>
-      </mat-card>
-
-    </div>
-
-  </div>
-
-<!--<div>
+<div>
     <div>ELDERY</div>
     <div *ngFor="let person of persons"
          class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
@@ -71,10 +46,38 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button (click)="onEdit(person)">Editar</button>
-          <button mat-button (click)="onDelete(person.id)">Borrar</button>
+          <button mat-button (click)="onEdit(person)">Edit</button>
+          <button mat-button (click)="onDelete(person.id)">Delete</button>
         </mat-card-actions>
       </mat-card>
     </div>
     </div>
-  </div>-->
+  </div>
+
+<form [formGroup]="personForm" style="display: flex; flex-direction: column;">
+  <p>Age</p>
+  <input formControlName="age" type="text">
+  <p>Enable</p>
+  <input formControlName="enable" type="text">
+  <div *ngIf="personForm.get('grade').invalid && (personForm.get('grade').touched || personForm.get('grade').dirty)" class="alert alert.danger">
+    <div *ngIf="personForm.get('grade').errors.required">
+      Enable is required
+    </div>
+  </div>
+  <p>Name</p>
+  <input formControlName="name" type="text">
+  <div *ngIf="personForm.get('name').invalid && (personForm.get('name').touched || personForm.get('name').dirty)" class="alert alert.danger">
+    <div *ngIf="personForm.get('name').errors.required">
+      Name is required
+    </div>
+    <div *ngIf="personForm.get('name').errors.minlength">
+      Nombre debe tener minimo 3 caracteres
+    </div>
+  </div>
+  <p>Imagen</p>
+  <input formControlName="urlImage" type="text">
+</form>
+<br>
+<button (click)="onPostPerson()">Create</button>
+<button (click)="onUpdatePerson()">Update</button>
+
