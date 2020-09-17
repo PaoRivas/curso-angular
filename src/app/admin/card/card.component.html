@@ -1,3 +1,9 @@
-<p>
-card works!
-</p>
+<div [style.background]="!habilitado ? 'red' : 'orange'"
+      style="float: left; margin: 10px; padding: 10px;">
+  <p>Nombre: {{nombre | uppercase}}</p>
+  <p>Edad: {{edad}}</p>
+  <p>Habilitado: {{habilitado ? 'si' : 'no'}}</p>
+  <button (click)="onVotar()" [disabled]="!habilitado">
+    Votar
+  </button>
+</div>

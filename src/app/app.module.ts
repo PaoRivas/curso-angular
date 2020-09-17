@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './services/auth.service';
+import { PersonService } from './services/person.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { AuthService } from './services/auth.service';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, PersonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
