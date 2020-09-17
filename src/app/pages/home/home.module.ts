@@ -6,7 +6,6 @@ import { MatCardModule } from '@angular/material/card';
 import { ProductService } from '../../shared/services/product.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
@@ -17,8 +16,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatCardModule,
     MatButtonModule,
     MatSidenavModule,
-    
-    ReactiveFormsModule,
     
     MatFormFieldModule,
     MatInputModule
