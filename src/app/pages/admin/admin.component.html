@@ -14,10 +14,10 @@
               productForm.get('description').dirty)"
            class="alert alert-danger">
         <div *ngIf="productForm.get('description').errors.required">
-          Name is required
+          Description is required
         </div>
         <div *ngIf="productForm.get('description').errors.minlength">
-          Name must have 3 characteres min
+          Description must have 3 characteres min
         </div>
       </div>
 
