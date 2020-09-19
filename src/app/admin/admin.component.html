@@ -1,20 +1,17 @@
-<app-header [report]="report"></app-header>
+<app-nav></app-nav>
 
 <mat-drawer-container class="example-container" autosize style="width: 100%">
   <mat-drawer [opened]="opened" class="example-sidenav" mode="side" style="width: 300px; height: 100%" [position]="'end'">
     <app-form [personForm]="personForm" [edit]="edit"></app-form>
   </mat-drawer>
 
-  <div class="example-sidenav-content" style="padding-top: 20px; padding-left: 20px">
-    <button type="button" mat-raised-button color="primary" (click)="opened=!opened; notEdit();">
+  <div style="padding-top: 20px; padding-left: 20px">
+    <button type="button" (click)="opened=!opened; notEdit();">
       ADD
-    </button>
-    <button type="button" mat-raised-button color="primary" style="margin-left: 20px" (click)="report = !report">
-      REPORT
     </button>
   </div>
 
-  <div style="background: cadetblue; width: 200px; text-align: center; margin: 50px;padding: 10px">
+  <div style="width: 200px; text-align: center; margin: 50px;padding: 10px">
     <h4>ELDERY</h4>
   </div>
 
@@ -24,7 +21,7 @@
     </div>
   </div>
 
-  <div style="background: cadetblue; width: 200px; text-align: center; margin: 50px;padding: 10px">
+  <div style="width: 200px; text-align: center; margin: 50px;padding: 10px">
     <h4>YOUNG</h4>
   </div>
 

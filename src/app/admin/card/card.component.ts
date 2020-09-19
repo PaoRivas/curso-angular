@@ -8,7 +8,7 @@ import { AdminComponent } from '../admin.component';
 })
 export class CardComponent implements OnInit {
 
-  @Input() perrito: any;
+  @Input() person: any;
 
   constructor(private adminComponent: AdminComponent) { }
 

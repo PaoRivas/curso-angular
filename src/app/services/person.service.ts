@@ -10,20 +10,20 @@ export class PersonService {
 
   constructor(private http: HttpClient) { }
 
-  public getPerson(): Observable<any>{
-    return this.http.get(`${this.url}/pets.json`);
+  public getPerson(): Observable<any> {
+    return this.http.get(`${this.url}/persons.json`);
   }
 
-  public addPerson(animal: any): Observable<any>{
-    return this.http.post(`${this.url}/pets.json`, animal);
+  public addPerson(person: any): Observable<any> {
+    return this.http.post(`${this.url}/persons.json`, person);
   }
 
-  public deletePerson(id: any): Observable<any>{
-    return this.http.delete(`${this.url}/pets/${id}.json`);
+  public deletePerson(id: any): Observable<any> {
+    return this.http.delete(`${this.url}/persons/${id}.json`);
   }
 
-  public updatePerson(animal: any, id: any): Observable<any>{
-    return this.http.put(`${this.url}/pets/${id}.json`, animal);
+  public updatePerson(id: any, person: any): Observable<any> {
+    return this.http.put(`${this.url}/persons/${id}.json`, person);
   }
 
 }

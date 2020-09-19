@@ -38,7 +38,6 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // tslint:disable-next-line:no-unused-expression
     this.personSubs ? this.personSubs.unsubscribe() : '';
   }
 

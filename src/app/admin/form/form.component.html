@@ -24,13 +24,13 @@
 
   <mat-form-field appearance="fill">
       <mat-label>ENABLE:</mat-label>
-    <input matInput formControlName="vaccinated" type="text">
+    <input matInput formControlName="enable" type="text">
   </mat-form-field>
-  <div *ngIf="personForm.get('vaccinated').invalid && (personForm.get('vaccinated').touched || personForm.get('vaccinated').dirty)" class=" alert alert-danger">
-    <div *ngIf="personForm.get('vaccinated').errors.required">
+  <div *ngIf="personForm.get('enable').invalid && (personForm.get('enable').touched || personForm.get('enable').dirty)" class=" alert alert-danger">
+    <div *ngIf="personForm.get('enable').errors.required">
       ENABLE REQUIRED
     </div>
   </div>
 </form>
-<button *ngIf="!edit" mat-stroked-button color="primary" style="margin-left: 100px" (click)="onEnviar()">SAVE</button>
-<button *ngIf="edit" mat-stroked-button color="primary"  style="margin-left: 100px" (click)="onUpdateProduct()">SAVE</button>
+<button *ngIf="!edit" style="margin-left: 100px" (click)="onEnviar()">SAVE</button>
+<button *ngIf="edit" style="margin-left: 100px" (click)="onUpdateProduct()">SAVE</button>

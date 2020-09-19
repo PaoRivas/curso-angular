@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy,  OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { PersonService } from '../services/person.service';
@@ -10,7 +9,7 @@ import { PersonService } from '../services/person.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, OnDestroy {
 
   report = false;
   opened = false;
@@ -26,8 +25,7 @@ export class AdminComponent implements OnInit {
 
   edit: boolean;
 
-  constructor(private formBuilder: FormBuilder, private personService: PersonService, private authService: AuthService,
-              private store: Store<any>) { }
+  constructor(private formBuilder: FormBuilder, private personService: PersonService, private authService: AuthService) { }
 
   ngOnInit() {
     this.edit = false;
@@ -47,13 +45,8 @@ export class AdminComponent implements OnInit {
     this.persons = [];
     this.personSubsGet = this.personService.getPerson().subscribe(res => {
         Object.entries(res).map((p: any) => this.persons.push({id: p[0], ...p[1]}));
-        this.eldery = this.persons.filter((p: any) => p.vaccinated === true || p.vaccinated === 'true');
-        this.young = this.persons.filter((p: any) => !p.vaccinated || p.vaccinated === 'false');
-
-        this.store.dispatch(EmptyStore());
-        for (const p of this.persons){
-          this.store.dispatch(AddAnimal({animal: p}));
-        }
+        this.eldery = this.persons.filter((p: any) => p.age > 65 );
+        this.young = this.persons.filter((p: any) => p.age < 65);
       }
     );
     this.opened = false;
