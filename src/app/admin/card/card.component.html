@@ -1,0 +1,8 @@
+<div [style.background]="!enable ? 'red' : 'orange'"
+       style="float: left; margin: 10px; padding: 10px;">
+	  <p>Name: {{person.name | uppercase}}</p>
+	  <p>Age: {{person.age}}</p>
+	  <p>Enable: {{person.enable ? 'yes' : 'no'}}</p>
+	  <button (click)="onEdit(person);">EDIT</button>
+    <button (click)="onDelete(person.id)">DELETE</button>
+  </div>
