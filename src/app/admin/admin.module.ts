@@ -5,7 +5,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { CardComponent } from './card/card.component';
 import { NavComponent } from './nav/nav.component';
 import { FormComponent } from './form/form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -21,7 +21,8 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
   ],
   declarations: [AdminComponent, CardComponent, NavComponent, FormComponent]
 })

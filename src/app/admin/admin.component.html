@@ -9,6 +9,8 @@
     <button type="button" (click)="opened=!opened; notEdit();">
       ADD
     </button>
+    <input type="text" [(ngModel)]="search">
+		<button (click)="onSearch()">Search</button>
   </div>
 
   <div style="width: 200px; text-align: center; margin: 50px;padding: 10px">

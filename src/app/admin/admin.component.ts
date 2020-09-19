@@ -1,4 +1,4 @@
-import { Component, OnDestroy,  OnInit } from '@angular/core';
+import { Component, Input,  OnDestroy,  OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../services/auth.service';
@@ -11,7 +11,6 @@ import { PersonService } from '../services/person.service';
 })
 export class AdminComponent implements OnInit, OnDestroy {
 
-  report = false;
   opened = false;
   personForm: FormGroup;
   persons = [];
@@ -22,6 +21,9 @@ export class AdminComponent implements OnInit, OnDestroy {
   personSubsUpdate: Subscription;
   editId: any;
   pre = [];
+  search: string;
+  auxE = [];
+  auxY = [];
 
   edit: boolean;
 
@@ -40,13 +42,25 @@ export class AdminComponent implements OnInit, OnDestroy {
     });
   }
 
+  onSearch() {
+      this.loadProducts();
+  }
+
   loadProducts(): void{
     this.pre = this.persons;
     this.persons = [];
     this.personSubsGet = this.personService.getPerson().subscribe(res => {
         Object.entries(res).map((p: any) => this.persons.push({id: p[0], ...p[1]}));
-        this.eldery = this.persons.filter((p: any) => p.age > 65 );
-        this.young = this.persons.filter((p: any) => p.age < 65);
+        this.auxE = this.persons.filter((p: any) => p.age > 65 );
+        this.auxY = this.persons.filter((p: any) => p.age < 65);
+
+        if(this.search) {
+          this.eldery = this.auxE.filter(el => el.name.includes(this.search));
+          this.young = this.auxY.filter(el => el.name.includes(this.search));
+        } else {
+          this.young = this.auxY;
+          this.eldery = this.auxE;
+        }
       }
     );
     this.opened = false;
