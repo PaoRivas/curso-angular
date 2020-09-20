@@ -55,8 +55,8 @@ export class AdminComponent implements OnInit, OnDestroy {
         this.auxY = this.persons.filter((p: any) => p.age < 65);
 
         if(this.search) {
-          this.eldery = this.auxE.filter(el => el.name.includes(this.search));
-          this.young = this.auxY.filter(el => el.name.includes(this.search));
+          this.eldery = this.auxE.filter(el => el.name.includes(this.search.toLowerCase()));
+          this.young = this.auxY.filter(el => el.name.includes(this.search.toLowerCase()));
         } else {
           this.young = this.auxY;
           this.eldery = this.auxE;
